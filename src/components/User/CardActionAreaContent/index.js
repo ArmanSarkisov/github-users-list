@@ -5,10 +5,10 @@ const CardActionAreaContent = ({ avatar, login, type }) => (
     <CardActionArea>
         <CardMedia
             component="img"
-            alt="Contemplative Reptile"
+            alt={login}
             height="140"
             image={ avatar }
-            title="Contemplative Reptile"
+            title={login}
             style={{ height: 250 }}
         />
         <CardContent>

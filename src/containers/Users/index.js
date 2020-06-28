@@ -3,17 +3,15 @@ import React, { Component } from 'react';
 // api
 import { getAllUsers } from '../../api';
 
-// styles
-import styles from './Users.module.scss';
-
 // components
 import User from '../../components/User';
 import ModalContent from '../../components/Modal';
 import AddUser from '../../components/AddUser';
 import { getRandomId } from '../../utils/getRandomId';
 import { validator } from '../../helpers/validator';
+import Container from '../../components/common/Container';
 
-class Users extends Component {
+class UsersContainer extends Component {
     state = {
         users: [],
         user: {
@@ -189,7 +187,7 @@ class Users extends Component {
         const { users, user, modal } = this.state;
 
         return (
-            <div className={ styles.container }>
+            <Container>
                 <AddUser handleCreateUser={ this.handleCreateUser } />
                 { users.map(user => {
                     return <User
@@ -212,9 +210,9 @@ class Users extends Component {
                     handleFormSubmit={ this.handleFormSubmit }
                     handleCreateFormSubmit={ this.handleCreateFormSubmit }
                 />
-            </div>
+            </Container>
         );
     }
 }
 
-export default Users;
+export default UsersContainer;

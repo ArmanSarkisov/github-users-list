@@ -1,14 +1,26 @@
 import React, { Component } from 'react';
+import { BrowserRouter as Router, Switch, Route, Redirect } from 'react-router-dom';
 
 // components
-import Users from './containers/Users';
+import Header from './components/Header';
+
+// pages
+import Users from './pages/Users';
+import UsersHooks from './pages/UsersHooks';
 
 class App extends Component {
     render() {
         return (
-            <div className="app">
-                <Users />
-            </div>
+            <Router>
+                <div className="app">
+                    <Header />
+                    <Switch>
+                        <Route exact path="/" component={Users} />
+                        <Route exact path="/users-hook" component={UsersHooks} />
+                        <Redirect from="*" to="/" />
+                    </Switch>
+                </div>
+            </Router>
         );
     }
 }
